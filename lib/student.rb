@@ -48,7 +48,7 @@ class Student
     sql = <<-SQL
       SELECT *
       FROM students
-      WHERE grade < '12'
+      WHERE grade != '12'
     SQL
     
     DB[:conn].execute(sql).map do |row|
@@ -72,7 +72,7 @@ class Student
   
   def self.first_student_in_grade_10
     sql = <<-SQL
-      SELECT id
+      SELECT *
       FROM students
       WHERE grade = '10'
       LIMIT 1
